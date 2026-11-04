@@ -1,7 +1,7 @@
 # iGnite Release 3.1
 ## System Test Strategy and Plan
 
-**Version:** Draft 0.2  
+**Version:** Draft 0.3  
 **Prepared:** 4 November 2026  
 **Testing scope:** Event-trigger validation using Slack messages or AWS CloudWatch logs.
 
@@ -71,6 +71,39 @@ The following event areas will be covered where included in the approved Release
 
 The expected event name, triggering action and log location must be agreed before testing.
 
+### User Stories and Requirements Workbook
+
+**R3.1_Digital_to_CDP_Data_Requirements_V2.xlsx is part of the user-story requirements for ST.** Use the workbook together with the agreed acceptance criteria for each story.
+
+The main worksheet, **R3.1 Digital to CDP Data**, contains 109 event requirement rows linked to the following 16 Jira references. The descriptions below are plain-language coverage summaries, not official Jira story titles.
+
+| User-story reference | Events covered | Workbook rows |
+|---|---|---|
+| CLMNBA-5148 | Login, login setup, logout and session refresh, including success and failure events. | 2-9 |
+| CLMNBA-6128 | Eligibility and coverage checks, device/plan views, upgrade, basket, checkout and order completion. | 10-18 |
+| CLMNBA-6127 | Account creation, preferences, offer display, referral, SIM/eSIM, orders, payments, bills, chat, recharge and activation. | 19-34 |
+| CLMNBA-5162 | Shop/VCA page-view events. | 35 |
+| CLMNBA-6034 | Lead-generation events. | 36 |
+| CLMNBA-5161 | Shop identity-capture events. | 37 |
+| CLMNBA-6036 | Service-check start events. | 38 |
+| CLMNBA-6035 | Shop interactions, including cart, checkout, orders, account actions, search, promotions, forms and errors. | 39-77 |
+| CLMNBA-5159 | MyVodafone web identity-capture events. | 78 |
+| CLMNBA-5160 | MyVodafone mobile identity-capture events. | 79 |
+| CLMNBA-6112 | App Opened and device-ID association event requirements. | 80 |
+| CLMNBA-6049 | MyVodafone web page-view events. | 81 |
+| CLMNBA-6050 | MyVodafone mobile screen-view events. | 82 |
+| CLMNBA-6111 | MyVodafone customer interactions, including login, registration, orders, self-service, promotions, links, logout and errors. | 83-97 |
+| CLMNBA-6119 | Application install, open, update, uninstall, crash, background and supported foreground events. | 98-104 |
+| CLMNBA-5716 | Install attribution, push-notification and deep-link events. | 105-110 |
+
+For each delivered story, ST will perform the relevant action and check its event trigger in Slack or CloudWatch. Record the story reference, worksheet row, expected event, test case, result and evidence so that coverage can be traced easily.
+
+The workbook's **TFE APIs, OneApp APIs, Cart & Checkout APIs and Auth0 Events** worksheets provide supporting information. Use applicable entries to help identify triggers; confirm any entry that is not mapped to an agreed story before including it in testing.
+
+If a workbook event name, trigger or platform is unclear, confirm it with the story owner or developer before testing. An event listed in the workbook does not automatically mean it has been delivered.
+
+**Including this workbook does not add Segment integration, Pega interaction or detailed payload validation to ST. Identity and offer events are checked only for their triggers, not for identity merging or downstream offer processing.**
+
 ## 5. Testing Approach - ST-related
 
 For each event, the ST team will:
@@ -118,6 +151,7 @@ Web, iOS and Android testing will be performed where the delivered events apply.
 ST can begin when:
 
 - The Release 3.1 event list and expected triggers are agreed.
+- The delivered user stories and applicable workbook rows are identified.
 - A stable application build is available.
 - Test accounts and data are ready.
 - Slack or CloudWatch access is available and working.
@@ -187,14 +221,14 @@ These are proposed completion criteria and require project approval.
 
 ## 13. Deliverables and Sign-off - ST-related
 
-ST will provide the test cases, execution results, event-trigger evidence, defect records and final ST summary.
+ST will provide the test cases, user-story/workbook coverage mapping, execution results, event-trigger evidence, defect records and final ST summary.
 
 **ST sign-off confirms only that the agreed event triggers were verified through Slack or CloudWatch. It does not confirm Segment integration or downstream processing.**
 
 ## Reference Documents
 
 - IACC-SAD - #901_ iGnite Segment CDP Release 3.1-291026-092530.pdf - project background and solution context.
-- R3.1_Digital_to_CDP_Data_Requirements_V2.xlsx - event requirements, subject to the approved Release 3.1 delivery.
+- R3.1_Digital_to_CDP_Data_Requirements_V2.xlsx - part of the user-story requirements and event-trigger coverage, subject to the approved Release 3.1 delivery.
 - st dfa STRATEGY DOC.docx - sample structure only.
 
 The current ST boundaries and absence of Pega interaction reflect the project clarifications supplied for this revision.
